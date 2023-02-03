@@ -8,12 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.blog.model.Board;
 import shop.mtcoding.blog.model.BoardRepository;
 import shop.mtcoding.blog.model.User;
-import shop.mtcoding.blog.util.Script;
 
 @Controller
 public class BoardController {

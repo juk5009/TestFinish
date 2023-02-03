@@ -9,20 +9,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
+import lombok.RequiredArgsConstructor;
 import shop.mtcoding.blog.model.User;
 import shop.mtcoding.blog.model.UserRepository;
 import shop.mtcoding.blog.util.Script;
 
+@RequiredArgsConstructor
 @Controller
 public class UserController {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private HttpSession session;
+    private final HttpSession session;
 
     @GetMapping("/logout")
     public String logout() {
@@ -49,11 +48,11 @@ public class UserController {
         if (result != 1) {
             return Script.back("회원가입실패");
         }
-        return Script.href("/loginForm");
+        return Script.href("회원가입완료", "/loginForom");
 
     }
 
-    @GetMapping("/loginForm")
+    @GetMapping({ "/", "/loginForm" })
     public String loginForm() {
         return "user/loginForm";
     }
